@@ -9,6 +9,6 @@ console.table(props.sales.data);
 
 <template>
     <app-layout>
-        <li v-for="sale in sales.data" :key="sale.id">{{ ` ${sale.id} - ${sale.sale_date} - ${sale.customer.id} , ${sale.customer.name} - ${sale.amount} - ${sale.discount} - ${sale.tax} - ${sale.total} ` }}</li>
+        <li v-for="sale in sales.data" :key="sale.id">{{ `  ${sale.sale_date} -${sale.customer.name}  -  ${sale.total}` }}</li>
     </app-layout>
 </template>
