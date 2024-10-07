@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\{NotificationResource, ProductResource, SalesDetailsResource};
-use App\Models\{Customer, Product, PurchaseOrders, Sale, SaleDetail, Notification, Comment};
+use App\Models\{ Customer, Product, PurchaseOrders, Sale, SaleDetail, Notification, Comment};
 use Inertia\Inertia;
 // use Carbon\Carbon; 
 use Illuminate\Support\Facades\DB;
+
+use App\Models\User;
 
 class DashboardController extends Controller
 {
     public function index()
     {
 
+        // Get the authenticated manager
+        $manager = auth()->user();
+
+        // Get unread notifications
+        $notifications = $manager->unreadNotifications;
         // Get total revenue for the current week (from start of this week)
         $currentWeekRevenue = Sale::where('sale_date', '>=', DB::raw('DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)'))
             ->sum('grand_total');
