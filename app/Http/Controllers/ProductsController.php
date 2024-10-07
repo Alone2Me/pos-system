@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Resources\CategoriesResource;
 use App\Http\Resources\ProductResource;
-use App\Models\{Categories,Products};
+use App\Models\{Category,Product};
 use Illuminate\Support\Facades\Redirect;
-
-class ProductController extends Controller
+use App\Models\User; // Assuming the store manager is a user
+use App\Notifications\LowInventoryNotification;
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         return Inertia::render('Products/Index',[
-            'products'=>ProductResource::collection(Products::all())
+            'products'=>ProductResource::collection(Product::all())
         ]);
     }
 
@@ -27,7 +28,7 @@ class ProductController extends Controller
     public function create()
     {
         return Inertia::render('Products/Create', [
-            'categories' => CategoriesResource::collection(Categories::all()),
+            'categories' => CategoriesResource::collection(Category::all()),
         ]);
     }
 
@@ -45,8 +46,23 @@ class ProductController extends Controller
             'sku' => ['required', 'unique:products,sku', 'max:50'], // Ensures SKU is unique
         ]);
 
-        Products::create($validatedData);
+        Product::create($validatedData);
 
         return Redirect::back();
+    }
+
+    public function checkInventory(Product $product)
+    {
+        // Let's assume the threshold is 10 items
+        $lowStockThreshold = 10;
+
+        // If product quantity is below the threshold, notify the store manager
+        if ($product->quantity < $lowStockThreshold) {
+            // Assume the store manager has the ID of 1
+            $storeManager = User::find(1); 
+
+            // Send notification
+            $storeManager->notify(new LowInventoryNotification($product, $product->quantity));
+        }
     }
 }
