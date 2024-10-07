@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\{NotificationResource, ProductResource, SalesDetailsResource, PurchaseOrdersResource};
-use App\Models\{Customer, Products, PurchaseOrders, Sales, SalesDetails, Notification, Comment};
+use App\Http\Resources\{NotificationResource, ProductResource, SalesDetailsResource};
+use App\Models\{Customer, Product, PurchaseOrders, Sale, SaleDetail, Notification, Comment};
 use Inertia\Inertia;
 // use Carbon\Carbon; 
 use Illuminate\Support\Facades\DB;
@@ -14,10 +14,10 @@ class DashboardController extends Controller
     {
 
         // Get total revenue for the current week (from start of this week)
-        $currentWeekRevenue = Sales::where('sale_date', '>=', DB::raw('DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)'))
+        $currentWeekRevenue = Sale::where('sale_date', '>=', DB::raw('DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)'))
             ->sum('grand_total');
         // Get total revenue for the last week (from start of last week to the start of this week)
-        $lastWeekRevenue = Sales::where('sale_date', '>=', DB::raw('DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 7 DAY)'))
+        $lastWeekRevenue = Sale::where('sale_date', '>=', DB::raw('DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 7 DAY)'))
             ->where('sale_date', '<', DB::raw('DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)'))
             ->sum('grand_total');
         // Calculate percentage change
@@ -26,7 +26,7 @@ class DashboardController extends Controller
             $percentageChange = (($currentWeekRevenue - $lastWeekRevenue) / $lastWeekRevenue) * 100;
         }
         // Get best-selling products
-        $bestSellingProducts = SalesDetails::with(['product.category'])
+        $bestSellingProducts = SaleDetail::with(['product.category'])
             ->select('product_id', DB::raw('SUM(quantity) as total_quantity_sold'), DB::raw('SUM(total) as total_sales'))
             ->groupBy('product_id')
             ->orderBy('total_sales', 'DESC') // Order by total_sales for accurate percentage calculation
@@ -53,7 +53,7 @@ class DashboardController extends Controller
                 'responded' => Comment::where('is_responded', 0)->count(),
             ],
 
-            'product' => ProductResource::collection(Products::all()),
+            'product' => ProductResource::collection(Product::all()),
             'best_selling' => SalesDetailsResource::collection($bestSellingProducts),
             'sale_revenue' => [
                 'revenue' => (float)$currentWeekRevenue,

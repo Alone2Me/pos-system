@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\{DashboardController, CategoriesController, CustomersController, ProductController, SalesController};
+use App\Http\Controllers\{DashboardController, CategoriesController, CustomersController, ProductsController, SalesController};
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -69,6 +69,6 @@ Route::middleware([
     })->name('uikit.empty');
     Route::resource('sales', SalesController::class);
     Route::resource('customers', CustomersController::class);
-    Route::resource('product', ProductController::class);
+    Route::resource('product', ProductsController::class);
     Route::resource('categories', CategoriesController::class);
 });
