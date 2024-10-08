@@ -7,6 +7,7 @@ use App\Models\{ Customer, Product, PurchaseOrders, Sale, SaleDetail, Notificati
 use Inertia\Inertia;
 // use Carbon\Carbon; 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 
@@ -14,12 +15,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $user = Auth::user(); // Get the authenticated user
+        $notifications = $user->unreadNotifications; // Get unread notifications
 
-        // Get the authenticated manager
-        $manager = auth()->user();
-
-        // Get unread notifications
-        $notifications = $manager->unreadNotifications;
         // Get total revenue for the current week (from start of this week)
         $currentWeekRevenue = Sale::where('sale_date', '>=', DB::raw('DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY)'))
             ->sum('grand_total');

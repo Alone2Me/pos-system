@@ -50,19 +50,17 @@ class ProductsController extends Controller
 
         return Redirect::back();
     }
-
     public function checkInventory(Product $product)
     {
-        // Let's assume the threshold is 10 items
         $lowStockThreshold = 10;
 
-        // If product quantity is below the threshold, notify the store manager
         if ($product->quantity < $lowStockThreshold) {
-            // Assume the store manager has the ID of 1
-            $storeManager = User::find(1); 
+            $storeManager = User::find(1); // Replace with logic to find the appropriate user
 
-            // Send notification
-            $storeManager->notify(new LowInventoryNotification($product, $product->quantity));
+            // Send the notification
+            $storeManager->notify(new LowInventoryNotification($product, $product->quantity, 'high'));
         }
+
+        return redirect()->back();
     }
 }

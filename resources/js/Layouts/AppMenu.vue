@@ -227,7 +227,7 @@ const model = ref([
             {
                 label: "Crud",
                 icon: "pi pi-fw pi-pencil",
-                to: "/pages/crud",
+                route: "notifications.index",
             },
             {
                 label: "Not Found",

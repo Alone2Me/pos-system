@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\{DashboardController, CategoriesController, CustomersController, ProductsController, SalesController};
+use App\Http\Controllers\{DashboardController, NotificationController, CategoriesController, CustomersController, ProductsController, SalesController};
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -71,4 +71,5 @@ Route::middleware([
     Route::resource('customers', CustomersController::class);
     Route::resource('product', ProductsController::class);
     Route::resource('categories', CategoriesController::class);
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 });
