@@ -26,7 +26,7 @@ function formatCurrency(value) {
 }
 </script>
 <template>
-  <AppLayout>
+  <app-layout>
     <div class="card">
       <div class="font-semibold text-xl mb-4">Recent Sales</div>
       <DataTable
@@ -81,5 +81,5 @@ function formatCurrency(value) {
         </Column>
       </DataTable>
     </div>
-  </AppLayout>
+  </app-layout>
 </template>
