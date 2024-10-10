@@ -22,12 +22,12 @@ class Inventory extends Model
      // Accessor to determine stock status
      public function getStatusAttribute()
      {
-         if ($this->quantity > 5) {
-             return 'instock';
-         } elseif ($this->quantity > 0) {
-             return 'lowstock';
+         if ($this->quantity > 199) {
+             return 'INSTOCK';
+         } elseif ($this->quantity > 100) {
+             return 'LOWSTOK';
          } else {
-             return 'outofstock';
+             return 'OUTOFSTOCK';
          }
      }
 }
