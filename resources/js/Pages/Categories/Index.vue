@@ -1,31 +1,11 @@
 <script setup>
-import { onBeforeMount, ref } from "vue";
-
+import { ref } from "vue";
 import AppLayout from "@/Layouts/AppLayout.vue";
-
-
 defineProps({
   categories: Object,
   product: Object,
 });
-
 const products = ref(null);
-
-function getOrderSeverity(order) {
-  switch (order.status) {
-    case "DELIVERED":
-      return "success";
-    case "CANCELLED":
-      return "danger";
-    case "PENDING":
-      return "warn";
-    case "RETURNED":
-      return "info";
-    default:
-      return null;
-  }
-}
-
 function getStockSeverity(product) {
   switch (product.inventoryStatus) {
     case "INSTOCK":
@@ -38,7 +18,6 @@ function getStockSeverity(product) {
       return null;
   }
 }
-
 function formatCurrency(value) {
   return value.toLocaleString("en-US", {
     style: "currency",
