@@ -133,12 +133,12 @@ const model = ref([
                     {
                         label: "Index",
                         icon: "pi pi-fw pi-database",
-                        route: "product.index",
+                        route: "products.index",
                     },
                     {
                         label: "Create",
                         icon: "pi pi-fw pi-plus-circle",
-                        route: "product.create",
+                        route: "products.create",
                     },
                 ],
             },
@@ -149,12 +149,12 @@ const model = ref([
                     {
                         label: "Index",
                         icon: "pi pi-fw pi-database",
-                        // route: "inventory.index",
+                        route: "inventories.index",
                     },
                     {
                         label: "Create",
                         icon: "pi pi-fw pi-plus-circle",
-                        // route: "inventory.create",
+                        // route: "inventories.create",
                     },
                 ],
             },

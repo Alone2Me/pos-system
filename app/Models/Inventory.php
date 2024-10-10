@@ -1,33 +1,20 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 class Inventory extends Model
 {
     use HasFactory;
-
-
-
     protected $fillable = ['id', 'product_id', 'quantity']; // Added product_id to link to Products
-
     // Define relationship with Products if needed (optional, inverse relation)
     public function product()
     {
-        return $this->belongsTo(Products::class, 'product_id', 'id');
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
-
-     // Accessor to determine stock status
-     public function getStatusAttribute()
-     {
-         if ($this->quantity > 199) {
-             return 'INSTOCK';
-         } elseif ($this->quantity > 100) {
-             return 'LOWSTOK';
-         } else {
-             return 'OUTOFSTOCK';
-         }
-     }
+    // Accessor to determine stock status
+    public function getStatusAttribute()
+    {
+        return $this->quantity > 70 ? 'INSTOCK'
+            : ($this->quantity > 30 ? 'LOWSTOCK' : 'OUTOFSTOCK');
+    }
 }
