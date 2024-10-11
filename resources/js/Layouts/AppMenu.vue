@@ -151,11 +151,6 @@ const model = ref([
                         icon: "pi pi-fw pi-database",
                         route: "inventories.index",
                     },
-                    {
-                        label: "Create",
-                        icon: "pi pi-fw pi-plus-circle",
-                        // route: "inventories.create",
-                    },
                 ],
             },
         ],
