@@ -182,7 +182,7 @@ const model = ref([
             {
                 label: "Sale",
                 icon: "pi pi-fw pi-cart-plus",
-                route: "sales.index"
+                route: "sales.create"
             },
         ],
     },
