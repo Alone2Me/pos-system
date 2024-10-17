@@ -25,7 +25,7 @@ const form = useForm({
   sku: "",
 });
 const createProduct = () => {
-  form.post(route("product.store"), {
+  form.post(route("products.store"), {
     errorBag: "createProduct",
     preserveScroll: true,
     onSuccess: () => {
