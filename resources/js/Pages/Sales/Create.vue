@@ -102,12 +102,12 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
 
 <template>
   <div class="grid grid-cols-12 gap-4">
-    <div class="col-span-12 xl:col-span-6">
+    <div class="col-span-12 xl:col-span-8">
       <div class="card">
         <div class="font-semibold text-xl mb-4">Recent Sales</div>
         <DataTable
           :value="products"
-          :rows="5"
+          :rows="12"
           :paginator="true"
           responsiveLayout="scroll"
         >
@@ -136,7 +136,7 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
       </div>
     </div>
 
-    <div class="col-span-12 xl:col-span-6">
+    <div class="col-span-12 xl:col-span-4">
       <div class="card">
         <div class="font-semibold text-xl mb-4">Recent Sales</div>
       </div>
@@ -263,6 +263,45 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
         <span class="text-muted-color">since last week</span>
       </div>
     </div>
-    
+        <div class="col-span-12 lg:col-span-6 xl:col-span-1">
+      <div class="card mb-0">
+        <div class="flex justify-center mb-4">
+          <div>
+            <span class="block text-muted-color font-medium mb-4">Print Invoices</span>
+            <div
+              class="flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-border"
+              style="width: 5.5rem; height: 5.5rem"
+            >
+              <i class="pi pi-print text-green-500 !text-3xl"></i>
+            </div>
+            <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+              $2.100
+            </div>
+          </div>
+        </div>
+        <span class="text-primary font-medium">%52+ </span>
+        <span class="text-muted-color">since last week</span>
+      </div>
+    </div>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-1">
+      <div class="card mb-0">
+        <div class="flex justify-center mb-4">
+          <div>
+            <span class="block text-muted-color font-medium mb-4">Print Invoices</span>
+            <div
+              class="flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-border"
+              style="width: 5.5rem; height: 5.5rem"
+            >
+              <i class="pi pi-print text-green-500 !text-3xl"></i>
+            </div>
+            <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+              $2.100
+            </div>
+          </div>
+        </div>
+        <span class="text-primary font-medium">%52+ </span>
+        <span class="text-muted-color">since last week</span>
+      </div>
+    </div>
   </div>
 </template>
