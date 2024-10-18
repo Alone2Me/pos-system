@@ -144,12 +144,12 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
 
     <div class="col-span-12 lg:col-span-6 xl:col-span-1">
       <div class="card mb-0">
-        <div class="flex justify-between mb-4">
+        <div class="flex justify-center mb-4">
           <div>
             <span class="block text-muted-color font-medium mb-4">Recent sales</span>
             <div
               class="flex items-center justify-center bg-red-100 dark:bg-red-400/10 rounded-border"
-              style="width: 4.5rem; height: 4.5rem"
+              style="width: 5.5rem; height: 5.5rem"
             >
               <i class="pi pi-cart-plus text-red-500 !text-3xl"></i>
             </div>
@@ -164,14 +164,14 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
     </div>
     <div class="col-span-12 lg:col-span-6 xl:col-span-1">
       <div class="card mb-0">
-        <div class="flex justify-between mb-4">
+        <div class="flex justify-center mb-4">
           <div>
             <span class="block text-muted-color font-medium mb-4">Customers</span>
             <div
-              class="flex items-center justify-center bg-pink-100 dark:bg-pink-400/10 rounded-border"
-              style="width: 4.5rem; height: 4.5rem"
+              class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border"
+              style="width: 5.5rem; height: 5.5rem"
             >
-              <i class="pi pi-users text-pink-500 !text-3xl"></i>
+              <i class="pi pi-users text-cyan-500 !text-3xl"></i>
             </div>
             <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
               28441
@@ -184,12 +184,12 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
     </div>
     <div class="col-span-12 lg:col-span-6 xl:col-span-1">
       <div class="card mb-0">
-        <div class="flex justify-between mb-4">
+        <div class="flex justify-center mb-4">
           <div>
             <span class="block text-muted-color font-medium mb-4">Revenue</span>
             <div
               class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-border"
-              style="width: 4.5rem; height: 4.5rem"
+              style="width: 5.5rem; height: 5.5rem"
             >
               <i class="pi pi-dollar text-orange-500 !text-3xl"></i>
             </div>
@@ -204,12 +204,12 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
     </div>
     <div class="col-span-12 lg:col-span-6 xl:col-span-1">
       <div class="card mb-0">
-        <div class="flex justify-between mb-4">
+        <div class="flex justify-center mb-4">
           <div>
             <span class="block text-muted-color font-medium mb-4">Discount</span>
             <div
               class="flex items-center justify-center bg-red-100 dark:bg-red-400/10 rounded-border"
-              style="width: 4.5rem; height: 4.5rem"
+              style="width: 5.5rem; height: 5.5rem"
             >
               <i class="pi pi-percentage text-red-500 !text-3xl"></i>
             </div>
@@ -224,12 +224,12 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
     </div>
     <div class="col-span-12 lg:col-span-6 xl:col-span-1">
       <div class="card mb-0">
-        <div class="flex justify-between mb-4">
+        <div class="flex justify-center mb-4">
           <div>
             <span class="block text-muted-color font-medium mb-4">Sales List</span>
             <div
               class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border"
-              style="width: 4.5rem; height: 4.5rem"
+              style="width: 5.5rem; height: 5.5rem"
             >
               <i class="pi pi-table text-cyan-500 !text-3xl"></i>
             </div>
@@ -244,12 +244,12 @@ watch([getPrimary, getSurface, isDarkTheme], () => {
     </div>
     <div class="col-span-12 lg:col-span-6 xl:col-span-1">
       <div class="card mb-0">
-        <div class="flex justify-between mb-4">
+        <div class="flex justify-center mb-4">
           <div>
             <span class="block text-muted-color font-medium mb-4">Print Invoices</span>
             <div
               class="flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-border"
-              style="width: 4.5rem; height: 4.5rem"
+              style="width: 5.5rem; height: 5.5rem"
             >
               <i class="pi pi-print text-green-500 !text-3xl"></i>
             </div>
